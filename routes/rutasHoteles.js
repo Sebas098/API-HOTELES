@@ -2,66 +2,37 @@
 // todas deberian ir en un solo archivo mientras sean del mismo api
 import express from 'express';
 
+// IMPORTO LOS CONTROLADORES
+import { ControladorHabitacion } from '../controllers/ControladorHabitacion.js';
+import { ControladorReservas } from '../controllers/ControladorReserva.js';
+
 export let rutasAPI=express.Router(); //nos permite cambiar entre rutas
 
 // ACA PONE SUS ENDPOINTS
 
 //añaddir
-rutasAPI.post('/api/habitaciones', function (req, res) {
-    res.send('estoy guardando una habitacion')
-})
-
+rutasAPI.post('/api/habitaciones')
 //buscar general
-rutasAPI.get('/api/habitaciones', function (req, res) {
-    res.send('buscando todas las habitaciones')
-})
-
-
+rutasAPI.get('/api/habitaciones')
 //buscar por ID
-rutasAPI.get('/api/habitacion', function (req, res) {
-    res.send('buscando habitacion')
-})
-
-
+rutasAPI.get('/api/habitacion/:id') //url dinamica
 //modificar
-rutasAPI.put('/api/habitaciones', function (req, res) {
-    res.send('estoy actualizando una habitacion')
-})
-
-
+rutasAPI.put('/api/habitaciones/:id')
 //eliminar
-rutasAPI.delete('/api/habitaciones', function (req, res) {
-    res.send('estoy eliminando una habitacion')
-})
+rutasAPI.delete('/api/habitaciones/:id')
+
 
 
 //RESERVAS
 //añadir
-rutasAPI.post('/api/reservas', function (req, res) {
-    res.send('estoy guardando una reserva')
-})
-
+rutasAPI.post('/api/reservas')
 //buscar general
-rutasAPI.get('/api/reservas', function (req, res) {
-    res.send('buscando todas las reservas')
-})
-
-
+rutasAPI.get('/api/reservas')
 //buscar por ID
-rutasAPI.get('/api/reserva', function (req, res) {
-    res.send('buscando reserva')
-})
-
-
+rutasAPI.get('/api/reserva:id')
 //modificar
-rutasAPI.put('/api/reservas', function (req, res) {
-    res.send('estoy actualizando una reserva')
-})
-
-
+rutasAPI.put('/api/reservas:id')
 //eliminar
-rutasAPI.delete('/api/reservas', function (req, res) {
-    res.send('estoy eliminando una reserva')
-})
+rutasAPI.delete('/api/reservas:id')
 
     
