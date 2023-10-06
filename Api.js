@@ -1,6 +1,30 @@
-import { Api } from "./Api.js";
+import express from "express";
+import { rutasAPI } from "./routes/rutasHoteles.js";
 
-let servidor = new Api(); // CREANDO UN OBJETO DE LA CLASE API
+export class Api{
+    constructor(){
+        this.app=express()
+        this.procesarPeticiones() //HACEMOS QUE APENAS SE CONTRUYA PROCESO LAS PETICIONES
+    }
 
-// LEVANTAMOS EL SERIVDOR
-servidor.levantarServidor()
+    // 1.Levantar servidor
+    levantarServidor(){
+        this.app.listen(3000,function(){
+            console.log("Servidor Operando");
+        })
+    }
+
+
+    // 2.Atiende las petiicones
+    procesarPeticiones(){
+        //this.app nos referimos a express, el use es que vamos a ayudar a express a que haga algo
+        this.app.use("/",rutasAPI)
+        this.app.use(express.json())
+    }
+
+
+    // 3.1 se conecta con la base de datos
+
+   
+
+}
