@@ -19,6 +19,7 @@ export class Api{
     procesarPeticiones(){
         //this.app nos referimos a express, el use es que vamos a ayudar a express a que haga algo
         this.app.use("/",rutasAPI)
+        this.app.use(express.json())
     }
 
 
